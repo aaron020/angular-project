@@ -1,0 +1,52 @@
+<div class="container">
+  <h1>Pension Data Overview</h1>
+
+  <section class="section">
+    <h2>Collected Data</h2>
+
+    <div class="row">
+      <span class="label">Current Age:</span>
+      <span>{{ forecast()?.data?.collectedData?.currentAge }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Retirement Age:</span>
+      <span>{{ forecast()?.data?.collectedData?.retirementAge }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">State Pension:</span>
+      <span>{{currency()}}{{ forecast()?.data?.collectedData?.statePension | number:'1.0-0' }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Final Salary Pension:</span>
+      <span>{{currency()}}{{ forecast()?.data?.collectedData?.finalSalaryPension | number:'1.0-0' }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Pension Pot:</span>
+      <span>{{currency()}}{{ forecast()?.data?.collectedData?.pensionPot | number:'1.0-0' }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Pension Contribution:</span>
+      <span>{{currency()}}{{ forecast()?.data?.collectedData?.pensionContribution | number:'1.0-0' }}</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Calculated Data</h2>
+
+    <div class="row">
+      <span class="label">Defined Contribution Total:</span>
+      <span>{{currency()}}{{ forecast()?.data?.calculatedData?.definedContributionTotal | number:'1.0-0' }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Total Income:</span>
+      <span>{{currency()}}{{ forecast()?.data?.calculatedData?.totalIncome | number:'1.0-0' }}</span>
+    </div>
+  </section>
+</div>
+<app-loading [loading]="isLoading" message="Loading..."></app-loading>

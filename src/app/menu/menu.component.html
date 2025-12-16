@@ -1,0 +1,18 @@
+<nav class="navbar">
+  <div class="logo">Pension Calculator</div>
+
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/calculator">Calculator</a></li>
+
+    <li class="dropdown">
+      <select class="country-select"
+              [ngModel]="countryService.country()"
+              (ngModelChange)="countryService.setCountry($event)">
+        <option value="ireland">Ireland</option>
+        <option value="uk">United Kingdom</option>
+        <option value="usa">America</option>
+      </select>
+    </li>
+  </ul>
+</nav>

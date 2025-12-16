@@ -1,0 +1,45 @@
+<div class="input-container">
+  <h2>Pension Calculator – Input Details</h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" >
+    <label>Your Current Age</label>
+    <input type="number" formControlName="currentAge" placeholder="e.g. 46">
+    @if (form.get('currentAge')?.touched && form.get('currentAge')?.invalid) {
+      <small class="error">Please enter a valid age between 0 and 150.</small>
+    }
+
+    <label>Your Planned Retirement Age</label>
+    <input type="number" formControlName="retirementAge" placeholder="e.g. 67">
+    @if (form.get('retirementAge')?.touched && form.get('retirementAge')?.invalid) {
+      <small class="error">Please enter a valid age between 0 and 150.</small>
+    }
+
+    <label>State Pension Amount ({{currency()}} per year)</label>
+    <input type="number" formControlName="statePension" placeholder="e.g. 11973">
+    @if (form.get('statePension')?.touched && form.get('statePension')?.invalid) {
+      <small class="error">Please enter a value.</small>
+    }
+
+    <label>Final Salary Pension Forecast ({{currency()}} per year)</label>
+    <input type="number" formControlName="finalSalaryPension" placeholder="e.g. 23000">
+    @if (form.get('finalSalaryPension')?.touched && form.get('finalSalaryPension')?.invalid) {
+      <small class="error">Please enter a value.</small>
+    }
+
+    <label>Current Defined Contribution Pension Pot ({{currency()}})</label>
+    <input type="number" formControlName="pensionPot" placeholder="e.g. 44000">
+    @if (form.get('pensionPot')?.touched && form.get('pensionPot')?.invalid) {
+      <small class="error">Please enter a value.</small>
+    }
+
+    <label>Monthly Contribution to Defined Contribution Pension ({{currency()}})</label>
+    <input type="number" formControlName="pensionContribution" placeholder="e.g. 778">
+    @if (form.get('pensionContribution')?.touched && form.get('pensionContribution')?.invalid) {
+      <small class="error">Please enter a value.</small>
+    }
+
+    <button type="submit">Calculate Pension Forecast</button>
+
+  </form>
+</div>
+<app-loading [loading]="isLoading" message="Calculating..."></app-loading>
